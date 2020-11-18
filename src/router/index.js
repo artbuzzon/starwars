@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import PersonsList from '@/views/PeopleList';
-import PageNotFound from '@/components/PageNotFound';
 
 
 Vue.use(VueRouter);
@@ -25,7 +24,7 @@ const routes = [
 	{
 		path: "*",
 		name: 'page-not-found',
-		component: PageNotFound
+		component: () => import(/* webpackChunkName: "pageNotFound" */ '../components/PageNotFound'),
 	}
 ];
 

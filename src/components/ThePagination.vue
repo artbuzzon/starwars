@@ -90,9 +90,8 @@ export default {
     border-color: #0056b3;
 
     &:hover {
-        background-color: lighten(#0C5460, 5);
+        background-color: lighten(#0056b3, 5);
     }
-
 }
 
 .disabledItem {
