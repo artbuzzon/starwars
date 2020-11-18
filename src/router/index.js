@@ -8,6 +8,10 @@ Vue.use(VueRouter);
 
 const routes = [
 	{
+		path: '/',
+		redirect: 'people'
+	},
+	{
 		path: '/people',
 		name: 'people-list',
 		component: PersonsList
