@@ -1,32 +1,56 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div>
+        <TheHeader/>
+        <main :class="$style.main">
+            <router-view :key="$route.fullPath"/>
+        </main>
+        <TheFooter/>
     </div>
-    <router-view/>
-  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import TheHeader from '@/components/TheHeader';
+import TheFooter from '@/components/TheFooter';
+export default {
+    components: {
+        TheHeader,
+        TheFooter,
+    },
+};
+
+</script>
+
+<style lang="scss" module>
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
 
-#nav {
-  padding: 30px;
+html {
+    font-family: 'Roboto', sans-serif;
+    color: #26292c;
+    font-size: 62.5%; //10px
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+body {
+    box-sizing: border-box;
+    font-size: 1.6rem;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
+.main {
+    position: relative;
+    max-width: 60%;
+    margin: 7rem auto 0;
+    min-height: calc(100vh - 10.5rem)
+}
+
+@media screen and (max-width: 75em){
+    .main {
+        max-width: 80%;
     }
-  }
 }
+
 </style>
